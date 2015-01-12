@@ -38,9 +38,10 @@ This is a list of the stuff involved in making this project happen (will be upda
 ## Install Node.js
 
 1. Go to http://nodejs.org/ and install
-2. Navigate to local repository - BFNG/Web Application/BFNG
-3. Run "npm install" (might need admin)
-4. Hopefully run "nodemon bin/www"
+2. Navigate to local repository - *BFNG/Web Application/BFNG*
+3. Run **npm install** (might need admin)
+4. Hopefully run **nodemon bin/www**
+5. Navigate to **localhost:9000** in your browser of choice (better not be IE)
  
 
 ##"Stay tuned folks, cause this shits about to get real" - Gandalf
