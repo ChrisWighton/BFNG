@@ -1,0 +1,79 @@
+body {
+	font-family: "Verdana";
+	background-image: url('real_cf.png');
+}
+
+div.bfng-logo {
+	position: relative;
+	with: 100%;
+	text-align: center;
+}
+
+div.bfng-logo h1 {
+	font-family: "impact";
+	font-size: 60px;
+	letter-spacing: 12px;
+	color: #f37046;
+	text-shadow: -3px -3px 0px white, 3px -3px 0px white, -3px 3px 0px white, 3px 3px 0px white;
+}
+
+div.bfng-logo h1:hover:after {
+	position: absolute;
+	font-size: 20px;
+	content: "Big Fuck-off Nerf Gun";
+	color: white;
+	text-shadow: none;
+	letter-spacing: initial;
+	bottom: -20px;
+	left: 0;
+	right: 0;
+	margin-left: -12px;
+}
+
+
+
+div.input-wrapper {
+	position: relative;
+	width: 90%;
+	max-width: 500px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+label {
+	display: block;
+	color: white;
+	font-size: 16px;
+	margin-bottom: 4px;
+}
+
+input {
+	width: 100%;
+	font-size: 16px;
+	border-radius: 2px;
+	border: 1px solid white;
+	padding: 4px 6px;
+	margin-bottom: 30px;
+}
+
+button.fire {
+	position: relative;
+	font-size: 30px;
+	width: 150px;
+	height: 70px;
+	left: 50%;
+	margin: 40px 0 0 -75px;
+	color: white;
+	background-color: #f37046;
+	border: 0px solid white;
+	border-bottom: 5px solid #a44b2f;
+	border-radius: 3%;
+	outline: 0;
+	cursor: pointer;
+}
+
+button.fire:active {
+	border: 0px;
+	margin-top: 45px;
+	background-color: #f3423f;
+}
