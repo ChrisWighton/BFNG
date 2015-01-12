@@ -1,5 +1,6 @@
 angular.module("bfng", [
-	'main.controller'
+	'main.controller',
+	'dom.directive'
 	])
 
 ;

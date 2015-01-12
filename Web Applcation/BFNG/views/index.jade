@@ -9,12 +9,12 @@ block content
 
 		div(class="input-wrapper")
 			label(for="ipaddress") IP Address
-			input(id="ipaddress" type="text" ng-model="ip_address")
+			input(id="ipaddress" type="text" ng-model="ip_address" select-on-focus)
 
 			label(for="pitch") Pitch
-			input(id="pitch" type="number" min="-360" max="360" ng-model="pitch")
+			input(id="pitch" type="number" min="-360" max="360" ng-model="pitch" select-on-focus focus)
 
 			label(for="yaw") Yaw
-			input(id="yaw" type="number" min="-360" max="360" ng-model="yaw")
+			input(id="yaw" type="number" min="-360" max="360" ng-model="yaw" select-on-focus)
 
 			button(class="fire" ng-click="fire()") FIRE

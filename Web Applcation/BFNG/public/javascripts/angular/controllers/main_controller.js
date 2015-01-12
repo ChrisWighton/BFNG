@@ -34,7 +34,5 @@ angular.module("main.controller", [])
 			input_yaw.value = yaw;
 		};
 
-		$("#pitch").focus();
-
 	}])
 ;
