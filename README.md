@@ -38,6 +38,9 @@ This is a list of the stuff involved in making this project happen (will be upda
 ## Install Node.js
 
 1. Go to http://nodejs.org/ and install
+2. Navigate to local repository
+3. Run "npm install" (might need admin)
+4. Hopefully run "nodemon bin/www"
  
 
 ##"Stay tuned folks, cause this shits about to get real" - Gandalf
