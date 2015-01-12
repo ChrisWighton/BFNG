@@ -2,18 +2,19 @@ extends layout
 
 block content
 
-	div(class="bfng-logo")
-		h1= title
-			span= name
+	section(ng-controller="MainController")
+		div(class="bfng-logo")
+			h1= title
+				span= name
 
-	div(class="input-wrapper")
-		label(for="ipaddress") IP Address
-		input(id="ipaddress" type="text" value="192.168.0.1")
+		div(class="input-wrapper")
+			label(for="ipaddress") IP Address
+			input(id="ipaddress" type="text" ng-model="ip_address")
 
-		label(for="pitch") Pitch
-		input(id="pitch" type="number" min="-360" max="360")
+			label(for="pitch") Pitch
+			input(id="pitch" type="number" min="-360" max="360" ng-model="pitch")
 
-		label(for="yaw") Yaw
-		input(id="yaw" type="number" min="-360" max="360")
+			label(for="yaw") Yaw
+			input(id="yaw" type="number" min="-360" max="360" ng-model="yaw")
 
-		button(class="fire" onclick="fire()") FIRE
+			button(class="fire" ng-click="fire()") FIRE
