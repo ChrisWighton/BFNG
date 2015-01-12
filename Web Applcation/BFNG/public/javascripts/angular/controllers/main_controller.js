@@ -30,8 +30,8 @@ angular.module("main.controller", [])
 
 			alert("Firing @ " + ip_address + " - [pitch: " + pitch + ", yaw: " + yaw + "]");
 
-			input_pitch.value = pitch;
-			input_yaw.value = yaw;
+			$scope.pitch = pitch;
+			$scope.yaw = yaw;
 		};
 
 	}])
