@@ -1,3 +1,7 @@
+$(document).ready(function() {
+	document.getElementById("pitch").focus();
+});
+
 
 function fire() {
 	var input_ip_address = document.getElementById("ipaddress");

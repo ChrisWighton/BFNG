@@ -34,6 +34,10 @@ This is a list of the stuff involved in making this project happen (will be upda
 * Resistors and components and stuff
 * Wires and stuff
 * Swag and yolo bruh  
+
+## Install Node.js
+
+1. Go to http://nodejs.org/ and install
  
 
 ##"Stay tuned folks, cause this shits about to get real" - Gandalf
