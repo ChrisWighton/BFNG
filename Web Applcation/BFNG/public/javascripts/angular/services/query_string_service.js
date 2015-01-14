@@ -19,11 +19,11 @@ angular.module("query_string.service", [])
 			for (var i = 0; i < commands.length; i++) {
 				var command = commands[i];
 				
-				errorMsg = command.validate(command);
+				errorMsg = command.validate();
 
 				if (errorMsg.length === 0) {
 					if (command.hasOwnProperty("build")) {
-						queryString += command.build(command);
+						queryString += command.build();
 					} else {
 						queryString += BuildDefaultAction(command);
 					}

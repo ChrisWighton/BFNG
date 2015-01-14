@@ -24,36 +24,36 @@ var fireCommand = {
 
 // COMMAND VALIDATORS
 
-function ValidateMoveCommand(command) {
+function ValidateMoveCommand() {
 	var max_x_axis = 60;
 	var max_y_axis = 70;
 
-	if (command.data.x_axis === "" || isNaN(command.data.x_axis)) {
+	if (this.data.x_axis === "" || isNaN(this.data.x_axis)) {
 		return "please provide a numerical X_Axis value";
 	}
 
-	if (command.data.y_axis === "" || isNaN(command.data.y_axis)) {
+	if (this.data.y_axis === "" || isNaN(this.data.y_axis)) {
 		return "please provide a numerical Y_Axis value";
 	}
 
-	if (command.data.x_axis > max_x_axis)
-		command.data.x_axis = max_x_axis;
-	if (command.data.x_axis < -1 * max_x_axis)
-		command.data.x_axis = -1 * max_x_axis;
+	if (this.data.x_axis > max_x_axis)
+		this.data.x_axis = max_x_axis;
+	if (this.data.x_axis < -1 * max_x_axis)
+		this.data.x_axis = -1 * max_x_axis;
 
-	if (command.data.y_axis < 0)
-		command.data.y_axis = 0;
-	if (command.data.y_axis > max_y_axis)
-		command.data.y_axis = max_y_axis;
+	if (this.data.y_axis < 0)
+		this.data.y_axis = 0;
+	if (this.data.y_axis > max_y_axis)
+		this.data.y_axis = max_y_axis;
 
 	return "";
 }
 
-function ValidateFireCommand(command, errorMsg) {
+function ValidateFireCommand() {
 	var max_fire_count = 4;
 
-	if (command.data.count > max_fire_count)
-		command.data.count = max_fire_count;
+	if (this.data.count > max_fire_count)
+		this.data.count = max_fire_count;
 
 	return "";
 }

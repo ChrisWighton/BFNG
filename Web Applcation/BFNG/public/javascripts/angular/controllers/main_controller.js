@@ -8,7 +8,7 @@ angular.module("main.controller", [])
 		$scope.y_axis = 0;
 		$scope.firecount = 1;
 
-		$scope.fire = function() {
+		$scope.SendCommand = function() {
 			var ip_address = $scope.ip_address;
 			var x_axis = $scope.x_axis;
 			var y_axis = $scope.y_axis;
@@ -20,17 +20,20 @@ angular.module("main.controller", [])
 			
 			var queryString = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
 
-			var request = AjaxHelper.Get(queryString, null);
+			if (queryString !== "") {
+				var request = AjaxHelper.Get(queryString, null);
 
-			request.done(function(result) {
-				CommandHelper.ResetSelectedCommands();
-			});
+				request.done(function(result) {
+					console.log("Request success: " + result.statusText);
+				});
 
-			request.fail(function(error) {
-				alert(error);
-			});
+				request.fail(function(error) {
+					console.log("Request error: " + error.statusText);
+				});
+			}
 
 			$scope.query = queryString;
+			CommandHelper.ResetSelectedCommands();
 		};
 	}])
 ;
