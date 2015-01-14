@@ -1,8 +1,9 @@
 angular.module("bfng", [
+	'main.controller',
 	'common.service',
 	'command.service',
-	'main.controller',
 	'query_string.service',
+	'ajax.service',
 	'dom.directive'
 	])
 

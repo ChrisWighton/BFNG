@@ -1,7 +1,7 @@
 angular.module("main.controller", [])
 
-.controller('MainController', ['$scope', 'CommandHelper', 'QueryStringHelper',
-	function ($scope, CommandHelper, QueryStringHelper) {
+.controller('MainController', ['$scope', 'CommandHelper', 'QueryStringHelper', 'AjaxHelper',
+	function ($scope, CommandHelper, QueryStringHelper, AjaxHelper) {
 
 		$scope.ip_address = "myArduinoYun.local";
 		$scope.x_axis = 0;
@@ -18,8 +18,19 @@ angular.module("main.controller", [])
 			CommandHelper.AddAction(MOVE_COMMAND_NAME, { x_axis: x_axis, y_axis: y_axis });
 			CommandHelper.AddAction(FIRE_COMMAND_NAME, { count: firecount });
 			
-			$scope.query = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
-			CommandHelper.ResetSelectedCommands();
+			var queryString = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
+
+			var request = AjaxHelper.Get(queryString, null);
+
+			request.done(function(result) {
+				CommandHelper.ResetSelectedCommands();
+			});
+
+			request.fail(function(error) {
+				alert(error);
+			});
+
+			$scope.query = queryString;
 		};
 	}])
 ;
