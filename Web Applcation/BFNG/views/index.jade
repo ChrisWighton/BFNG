@@ -11,10 +11,16 @@ block content
 			label(for="ipaddress") IP Address
 			input(id="ipaddress" type="text" ng-model="ip_address" select-on-focus)
 
-			label(for="pitch") Pitch
-			input(id="pitch" type="number" ng-model="pitch" select-on-focus focus)
+			label(for="xaxis") X Axis
+			input(id="xaxis" type="number" ng-model="x_axis" select-on-focus focus)
 
-			label(for="yaw") Yaw
-			input(id="yaw" type="number" ng-model="yaw" select-on-focus)
+			label(for="yaxis") Y Axis
+			input(id="yaxis" type="number" ng-model="y_axis" select-on-focus)
 
+			label(for="firecount") Fire Count
+			input(id="firecount" type="number" ng-model="firecount" select-on-focus)
+			
 			button(class="fire" ng-click="fire()") FIRE
+
+			label(for="query") Http Request Sent
+			input(id="query" type="text" ng-model="query" readonly)

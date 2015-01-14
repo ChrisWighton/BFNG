@@ -2,62 +2,50 @@ angular.module("query_string.service", [])
 
 .factory('QueryStringHelper', function() {
 	
-	var AvailableActions = [];
-	var SelectedActions = [];
+	var qs_http = "http://";
+	var qs_api = "arduino/api"
 
-	var moveAction = {
-		name: "move",
-		data: {
-			x_axis: 0,
-			y_axis: 0
-		},
-		builder: BuildMoveAction
-	}
+	function QueryStringHelper() { }
 
-	var fireAction = {
-		name: "fire",
-		data: {
-			count: 0
-		},
-		builder: BuildFireAction
-	}
+	// Builds the query string based on the included commands
+	QueryStringHelper.prototype.BuildQueryString = function(ipaddress, commands) {
+		
+		var errorMsg = "";
+		var isValid = true;
 
-	function QueryStringHelper() {
-		AvailableActions.push(moveAction);
-		AvailableActions.push(fireAction);
-	}
+		if (ipaddress != "") {
+			var queryString = qs_http + ipaddress + "/" + qs_api;
 
-	QueryStringHelper.prototype.FindAction = function(name) {
-		for (var i = 0; i < AvailableActions.length; i++) {
-			if (AvailableActions[i].name === name) {
-				return $.extend(true, {}, AvailableActions[i]);
+			for (var i = 0; i < commands.length; i++) {
+				var command = commands[i];
+				
+				errorMsg = command.validate(command);
+
+				if (errorMsg.length === 0) {
+					if (command.hasOwnProperty("build")) {
+						queryString += command.build(command);
+					} else {
+						queryString += BuildDefaultAction(command);
+					}
+				} else {
+					isValid = false;
+					break;
+				}
 			}
+		} else {
+			isValid = false;
+			errorMsg = "please provide an ip address";
 		}
-		console.log("No action exists with name: " + name);
-	}
 
-	QueryStringHelper.prototype.AddAction = function(action) {
-		SelectedActions.push(action);
-	}
-
-	QueryStringHelper.prototype.BuildQueryString = function() {
-		$.each(SelectedActions, function(index, action) {
-			console.log(action);
-		});
-		SelectedActions = [];
-	}
-
-	
-
-	function BuildMoveAction() {
-		return "abc";
-	}
-
-	function BuildFireAction() {
-		return "def";
+		if (isValid) {
+			console.log(queryString);
+			return queryString;
+		} else {
+			alert(errorMsg);
+			return "";
+		}
 	}
 
 	return new QueryStringHelper;
 })
-
 ;

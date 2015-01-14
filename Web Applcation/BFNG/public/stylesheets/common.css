@@ -1,1 +1,1 @@
-body{font-family:"Verdana";background-image:url('/images/real_cf.png')}label{display:block;color:white;font-size:16px;margin-bottom:4px}input{width:100%;font-size:16px;border-radius:2px;border:1px solid white;padding:4px 6px;margin-bottom:30px}
+body{font-family:"Verdana";background-image:url('/images/real_cf.png')}label{display:block;color:white;font-size:16px;margin-bottom:4px}input{width:100%;font-size:16px;border-radius:2px;border:1px solid white;padding:4px 6px;margin-bottom:30px}input[readonly]{background-color:#bebebe}

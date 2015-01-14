@@ -1,48 +1,25 @@
 angular.module("main.controller", [])
 
-.controller('MainController', ['$scope', 'QueryStringHelper',
-	function ($scope, QueryStringHelper) {
+.controller('MainController', ['$scope', 'CommandHelper', 'QueryStringHelper',
+	function ($scope, CommandHelper, QueryStringHelper) {
 
-		var moveAction = QueryStringHelper.FindAction("move");
-
-		$scope.ip_address = "192.168.0.1";
-
-		$scope.pitch = moveAction.data.x_axis;
-		$scope.yaw = moveAction.data.y_axis;
+		$scope.ip_address = "myArduinoYun.local";
+		$scope.x_axis = 0;
+		$scope.y_axis = 0;
+		$scope.firecount = 1;
 
 		$scope.fire = function() {
 			var ip_address = $scope.ip_address;
-			var pitch = $scope.pitch;
-			var yaw = $scope.yaw;
+			var x_axis = $scope.x_axis;
+			var y_axis = $scope.y_axis;
+			var firecount = $scope.firecount;
 
-
-
-			if (ip_address == null) {
-				alert("please provide an ip address");
-				return;
-			}
-			if (pitch === "" || isNaN(pitch)) {
-				alert("please provide a numerical value for pitch");
-				return;
-			}
-			if (yaw === "" || isNaN(yaw)) {
-				alert("please provice a numberical value for yaw");
-				return;
-			}
-
-			pitch = pitch % 360;
-			yaw = yaw % 360;
-
-
-			moveAction.data.x_axis = pitch;
-			moveAction.data.y_axis = yaw;
-			QueryStringHelper.AddAction(moveAction);
-			QueryStringHelper.BuildQueryString();
-
-			alert("Firing @ " + ip_address + " - [pitch: " + pitch + ", yaw: " + yaw + "]");
-
-			$scope.pitch = pitch;
-			$scope.yaw = yaw;
+			// Get the query string
+			CommandHelper.AddAction(MOVE_COMMAND_NAME, { x_axis: x_axis, y_axis: y_axis });
+			CommandHelper.AddAction(FIRE_COMMAND_NAME, { count: firecount });
+			
+			$scope.query = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
+			CommandHelper.ResetSelectedCommands();
 		};
 	}])
 ;
