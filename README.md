@@ -7,7 +7,7 @@ A Nerf / Arduino project brought to you by:
 
 ### Who we is?
 
-This awesome duo combines to create **Forton Labs**. With their minor to fuck all experience in these types of projects they bring with them a Software and Mechanical engineering background fueled by a passionate love for all things orange and yellow.
+This awesome duo combines to create **Forton Labs**. With their minor to fuck all experience in these types of projects they bring with them a Software and Mechatronic engineering background fueled by a passionate love for all things orange and yellow.
 
 Let me ask you a question folks, what do you get when you cross:
 ![Nerf Vulcan](http://cdn.instructables.com/FYL/KOSB/FZ383SZ1/FYLKOSBFZ383SZ1.LARGE.jpg)
