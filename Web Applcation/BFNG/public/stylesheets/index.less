@@ -7,7 +7,7 @@ div.bfng-logo {
 		font-family: "impact";
 		font-size: 60px;
 		display: inline-block;
-		margin: 40px 0;
+		margin: 20px 0;
 		letter-spacing: 12px;
 		color: #f37046;
 		text-shadow: -3px -3px 0px white, 3px -3px 0px white, -3px 3px 0px white, 3px 3px 0px white;
@@ -23,7 +23,7 @@ div.bfng-logo {
 			color: white;
 			text-shadow: none;
 			letter-spacing: initial;
-			bottom: 20px;
+			bottom: 0;
 			left: 0;
 			right: 0;
 			margin-left: -12px;
@@ -63,5 +63,33 @@ button.fire {
 		border: 0px;
 		margin-top: 45px;
 		background-color: #f3423f;
+	}
+}
+
+
+@height-cloak: 30px;
+@width-cloak: 350px;
+div.loading-cloak {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.6);
+	z-index: 999;
+	display: none;
+
+	div {
+		position: absolute;
+		width: @width-cloak;
+		height: @height-cloak;
+		top: 50%;
+		margin-top: -1 * (@height-cloak / 2);
+		left: 50%;
+		margin-left: -1 * (@width-cloak / 2);
+		font-size: @height-cloak;
+		display: block;
+		color: white;
+		text-align: center;
 	}
 }

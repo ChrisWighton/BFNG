@@ -24,6 +24,7 @@ angular.module("main.controller", [])
 				var request = AjaxHelper.Get(queryString, null);
 				$scope.query = queryString;
 
+				$("div.loading-cloak").show();
 				request.done(function(result) {
 					console.log("Request success: " + result.statusText);
 				});
@@ -34,6 +35,7 @@ angular.module("main.controller", [])
 
 				request.always(function(result) {
 					CommandHelper.ResetSelectedCommands();
+					$("div.loading-cloak").hide();
 				});
 			}
 		};

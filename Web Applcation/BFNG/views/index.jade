@@ -3,6 +3,10 @@ extends layout
 block content
 
 	section(ng-controller="MainController")
+
+		div(class="loading-cloak")
+			div Sending...
+
 		div(class="bfng-logo")
 			h1= title
 				span= name
