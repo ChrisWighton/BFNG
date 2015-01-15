@@ -22,6 +22,7 @@ angular.module("main.controller", [])
 
 			if (queryString !== "") {
 				var request = AjaxHelper.Get(queryString, null);
+				$scope.query = queryString;
 
 				request.done(function(result) {
 					console.log("Request success: " + result.statusText);
@@ -30,10 +31,11 @@ angular.module("main.controller", [])
 				request.fail(function(error) {
 					console.log("Request error: " + error.statusText);
 				});
-			}
 
-			$scope.query = queryString;
-			CommandHelper.ResetSelectedCommands();
+				request.always(function(result) {
+					CommandHelper.ResetSelectedCommands();
+				});
+			}
 		};
 	}])
 ;
