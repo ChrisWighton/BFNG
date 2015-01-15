@@ -30,4 +30,4 @@ node_modules
 npm-debug.log
 
 # App Css files cause we haves the LESS
-public/stylesheets/*.css
+**/public/stylesheets/*.css
