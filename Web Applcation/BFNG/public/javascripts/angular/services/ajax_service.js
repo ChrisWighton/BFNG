@@ -24,7 +24,8 @@ angular.module("ajax.service", [])
 		return $.ajax({
 			url: query,
 			type: type,
-			data: data 
+			data: data,
+			timeout: 7500
 		});
 	}
 

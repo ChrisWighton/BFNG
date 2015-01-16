@@ -2,7 +2,6 @@ angular.module("query_string.service", [])
 
 .factory('QueryStringHelper', function() {
 	
-	var qs_http = "http://";
 	var qs_api = "arduino/api"
 
 	function QueryStringHelper() { }
@@ -14,7 +13,7 @@ angular.module("query_string.service", [])
 		var isValid = true;
 
 		if (ipaddress != "") {
-			var queryString = qs_http + ipaddress + "/" + qs_api;
+			var queryString = ipaddress + "/" + qs_api;
 
 			for (var i = 0; i < commands.length; i++) {
 				var command = commands[i];

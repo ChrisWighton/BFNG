@@ -21,23 +21,28 @@ angular.module("main.controller", [])
 			var queryString = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
 
 			if (queryString !== "") {
-				var request = AjaxHelper.Get(queryString, null);
+				var request = AjaxHelper.Get(queryString);
 				$scope.query = queryString;
+				$scope.response = "";
 
 				$("div.loading-cloak").show();
+				var $responseInput = $("input#response");
 				request.done(function(result) {
-					console.log("Request success: " + result.statusText);
-				});
-
-				request.fail(function(error) {
-					console.log("Request error: " + error.statusText);
-				});
-
-				request.always(function(result) {
+					$responseInput.removeClass("error").addClass("success");
+				})
+				.fail(function(xhr, status, error) {
+					$responseInput.removeClass("success").addClass("error");
+					$("html, body").animate({
+						scrollTop: $responseInput.offset().top
+					}, 1000);
+				})
+				.always(function(xhr, status, error) {
 					CommandHelper.ResetSelectedCommands();
 					$("div.loading-cloak").hide();
+					$scope.response = xhr.status + " - " + error;
+					$scope.$apply();
 				});
 			}
-		};
+		}
 	}])
 ;
