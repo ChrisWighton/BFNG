@@ -27,15 +27,19 @@ angular.module("main.controller", [])
 
 				$("div.loading-cloak").show();
 				var $responseInput = $("input#response");
+
+				// request success
 				request.done(function(result) {
 					$responseInput.removeClass("error").addClass("success");
 				})
+				// request failure
 				.fail(function(xhr, status, error) {
 					$responseInput.removeClass("success").addClass("error");
 					$("html, body").animate({
 						scrollTop: $responseInput.offset().top
 					}, 1000);
 				})
+				// request finally
 				.always(function(xhr, status, error) {
 					CommandHelper.ResetSelectedCommands();
 					$("div.loading-cloak").hide();
