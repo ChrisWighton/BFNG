@@ -3,7 +3,7 @@ angular.module("main.controller", [])
 .controller('MainController', ['$scope', 'CommandHelper', 'QueryStringHelper', 'AjaxHelper',
 	function ($scope, CommandHelper, QueryStringHelper, AjaxHelper) {
 
-		$scope.ip_address = "http://vulcan1.local";
+		$scope.ip_address = arduinoAddress;
 		$scope.x_axis = 0;
 		$scope.y_axis = 0;
 		$scope.firecount = 1;
