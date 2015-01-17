@@ -31,6 +31,3 @@ npm-debug.log
 
 # App Css files cause we haves the LESS
 **/public/stylesheets/*.css
-
-# Each developers own preferences
-__defaults.js
