@@ -17,6 +17,11 @@ block content
 				i(class="fa fa-at")
 			input(id="ipaddress" type="text" ng-model="ip_address" select-on-focus)
 
+			button(class="test" ng-click="TestConnection()") TEST&nbsp;&nbsp;
+				i(class="fa fa-send")
+
+		div(class="input-wrapper")
+
 			label(for="xaxis") X Axis
 				i(class="fa fa-arrows-h")
 			input(id="xaxis" type="number" ng-model="x_axis" select-on-focus focus)
@@ -32,10 +37,11 @@ block content
 			button(class="fire" ng-click="SendCommand()") FIRE&nbsp;&nbsp;
 				i(class="fa fa-play")
 
-			label(for="query")  Http Request
+		div(class="input-wrapper")
+			label(for="query")  Http Request Sent
 				i(class="fa fa-cloud-upload")
 			input(id="query" type="text" ng-model="query" readonly)
 
-			label(for="response") Http Response
+			label(for="response") Http Response Received
 				i(class="fa fa-cloud-download")
 			input(id="response" type="text" ng-model="response" readonly)

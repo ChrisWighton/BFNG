@@ -61,6 +61,8 @@ void loop() {
 // neat little method for getting the first index of the seperator
 int getIndexOfDataDelim(String data) {
   char charArrayOfData[MAX_DATA_SIZE];
+  
   data.toCharArray(charArrayOfData, MAX_DATA_SIZE);
+  
   return strchr(charArrayOfData, DATA_DELIM) - charArrayOfData;
 }

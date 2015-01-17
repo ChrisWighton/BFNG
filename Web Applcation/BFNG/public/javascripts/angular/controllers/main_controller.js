@@ -8,6 +8,18 @@ angular.module("main.controller", [])
 		$scope.y_axis = 0;
 		$scope.firecount = 1;
 
+		$scope.TestConnection = function() {
+			var ip_address = $scope.ip_address;
+
+			CommandHelper.AddAction(MOVE_COMMAND_NAME, { x_axis: 10, y_axis: 10 });
+			var queryString = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
+			var request = AjaxHelper.Get(queryString);
+
+			if (queryString !== "") {
+				$scope.SendRequest(queryString);
+			}
+		}
+
 		$scope.SendCommand = function() {
 			var ip_address = $scope.ip_address;
 			var x_axis = $scope.x_axis;
@@ -21,12 +33,17 @@ angular.module("main.controller", [])
 			var queryString = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
 
 			if (queryString !== "") {
-				var request = AjaxHelper.Get(queryString);
-				$scope.query = queryString;
-				$scope.response = "";
+				$scope.SendRequest(queryString);
+			}
+		}
 
-				$("div.loading-cloak").show();
-				var $responseInput = $("input#response");
+		$scope.SendRequest = function(queryString) {
+			var request = AjaxHelper.Get(queryString);
+			$scope.query = queryString;
+			$scope.response = "";
+
+			$("div.loading-cloak").show();
+			var $responseInput = $("input#response");
 
 				// request success
 				request.done(function(data, status, xhr) {
@@ -37,17 +54,16 @@ angular.module("main.controller", [])
 				.fail(function(xhr, status, error) {
 					$responseInput.removeClass("success").addClass("error");
 					$scope.response = xhr.status + " - " + error;
-					$("html, body").animate({
-						scrollTop: $responseInput.offset().top
-					}, 1000);
 				})
 				// request finally
 				.always(function(xhr, status, error) {
 					CommandHelper.ResetSelectedCommands();
 					$("div.loading-cloak").hide();
+					$("html, body").animate({
+						scrollTop: $responseInput.offset().top
+					}, 1000);
 					$scope.$apply();
 				});
 			}
-		}
-	}])
+		}])
 ;

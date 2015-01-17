@@ -3,6 +3,7 @@ div.bfng-logo {
 	with: 100%;
 	text-align: center;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+	background-image: url('/images/real_cf.png');
 
 	h1 {
 		font-family: "impact";
@@ -44,24 +45,35 @@ div.input-wrapper {
 	margin-top: 30px;
 	padding: 30px;
 	background-color: white;
-	border-radius: 2px;
+	border-radius: 3px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 }
 
-button.fire {
+button {
 	position: relative;
 	font-size: 30px;
 	width: 150px;
 	height: 70px;
 	left: 50%;
-	margin: 40px 0 40px -75px;
+	margin: 20px 0 20px -75px;
 	color: white;
-	background-color: #f37046;
 	border: 0px solid white;
-	border-bottom: 5px solid #a44b2f;
+	border-bottom: 5px solid white;
 	border-radius: 3%;
 	outline: 0;
 	cursor: pointer;
+}
+
+button.test {
+	background-color: #47b89d;
+	border-bottom-color: darken(#47b89d, 10%)
+}
+
+button.fire {
+	
+	background-color: #f37046;
+	border-bottom-color: darken(#f37046, 20%);
+	
 
 	&:active {
 		border: 0px;
