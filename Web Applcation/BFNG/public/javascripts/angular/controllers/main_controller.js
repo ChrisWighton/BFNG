@@ -3,7 +3,7 @@ angular.module("main.controller", [])
 .controller('MainController', ['$scope', 'CommandHelper', 'QueryStringHelper', 'AjaxHelper',
 	function ($scope, CommandHelper, QueryStringHelper, AjaxHelper) {
 
-		$scope.ip_address = "myArduinoYun.local";
+		$scope.ip_address = "http://vulcan1.local";
 		$scope.x_axis = 0;
 		$scope.y_axis = 0;
 		$scope.firecount = 1;
@@ -29,12 +29,14 @@ angular.module("main.controller", [])
 				var $responseInput = $("input#response");
 
 				// request success
-				request.done(function(result) {
+				request.done(function(data, status, xhr) {
 					$responseInput.removeClass("error").addClass("success");
+					$scope.response = xhr.status + " - " + status;
 				})
 				// request failure
 				.fail(function(xhr, status, error) {
 					$responseInput.removeClass("success").addClass("error");
+					$scope.response = xhr.status + " - " + error;
 					$("html, body").animate({
 						scrollTop: $responseInput.offset().top
 					}, 1000);
@@ -43,7 +45,6 @@ angular.module("main.controller", [])
 				.always(function(xhr, status, error) {
 					CommandHelper.ResetSelectedCommands();
 					$("div.loading-cloak").hide();
-					$scope.response = xhr.status + " - " + error;
 					$scope.$apply();
 				});
 			}
