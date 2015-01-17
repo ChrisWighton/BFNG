@@ -1,13 +1,17 @@
 body {
 	font-family: "Verdana";
+	margin: 0;
+	padding-bottom: 40px;
+	background-color: #F5F5F5;
+	color: rgba(0,0,0,0.54);
 	background-image: url('/images/real_cf.png');
 }
 
 label {
 	display: block;
-	color: white;
+	color: #f37046;
 	font-size: 16px;
-	margin-bottom: 4px;
+	margin-bottom: 15px;
 
 	i {
 		float: right;
@@ -18,21 +22,19 @@ input {
 	width: 100%;
 	font-size: 16px;
 	border-radius: 2px;
-	border: 1px solid white;
-	padding: 4px 6px;
+	outline: 0;
+	border: 0;
+	padding: 10px 6px;
 	margin-bottom: 30px;
+	color: rgba(0,0,0,0.54);
+	background-color: #F5F5F5;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 input.success {
-	border: 2px solid #368242;
 	color: #368242;
 }
 
 input.error {
-	border: 2px solid #be2b47;
 	color: #be2b47;
-}
-
-input[readonly] {
-	background-color: #bebebe;
 }

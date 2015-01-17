@@ -40,7 +40,8 @@ void loop() {
           Serial.println("firing");
         }
       }
-
+      
+      // read the next command
       nextCommand = client.readStringUntil('/');
 
     } while (nextCommand.length() > 0);

@@ -26,7 +26,7 @@ angular.module("ajax.service", [])
 			type: type,
 			data: data,
 			crossDomain: true,
-			timeout: 7500
+			timeout: 10000
 		});
 	}
 
