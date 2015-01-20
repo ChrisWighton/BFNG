@@ -14,12 +14,47 @@ h1 {
 
 label {
 	display: block;
-	color: #f37046;
+	color: white;
 	font-size: 16px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 
 	i {
 		float: right;
+	}
+}
+
+button {
+	position: relative;
+	font-size: 14px;
+	color: white;
+	border: 0px solid white;
+	border-bottom: 5px solid transparent;
+	border-radius: 3%;
+	padding: 10px 14px;
+	outline: 0;
+	cursor: pointer;
+
+	&.primary {
+		background-color: @colour-site-accent;
+		border-bottom-color: darken(@colour-site-accent, 10%);
+
+		&:active {
+			border: 0px;
+			margin-top: 5px;
+			background-color: darken(@colour-site-accent, 4%);
+		}
+	}
+
+	&.sm {
+		font-size: 16px;
+	}
+
+	&.md {
+		font-size: 20px;
+	}
+
+	&.lg {
+		font-size: 26px;
 	}
 }
 
@@ -65,7 +100,8 @@ div.input-form {
 		vertical-align: middle;
 		width: 1%;
 		padding: 0 40px;
-		background-color: @colour-site-accent;
+		background: @colour-site-accent;
+		border-left: 1px solid darken(@colour-site-accent, 10%);
 		border-top-right-radius: 3px;
 		border-bottom-right-radius: 3px;
 		cursor: pointer;
@@ -76,6 +112,12 @@ div.input-form {
 	}
 }
 
+div.input-label {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+@colour-slate-bg: #383838;
 div.content {
 	position: relative;
 	width: 90%;
@@ -87,5 +129,19 @@ div.content {
 		font-weight: 300;
 		margin: 30px 0;
 		color: white;
+	}
+
+	div.content-slate {
+		border-radius: 3px;
+		padding: 25px;
+		color: white;
+		background-color: @colour-slate-bg;
+		margin-bottom: 20px;
+
+		strong {
+			display: block;
+			color: @colour-site-accent;
+			margin-bottom: 4px;
+		}
 	}
 }
