@@ -47,40 +47,40 @@ div.input-wrapper {
 	background-color: white;
 	border-radius: 3px;
 	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
-}
 
-button {
-	position: relative;
-	font-size: 30px;
-	width: 150px;
-	height: 70px;
-	left: 50%;
-	margin: 20px 0 20px -75px;
-	color: white;
-	border: 0px solid white;
-	border-bottom: 5px solid white;
-	border-radius: 3%;
-	outline: 0;
-	cursor: pointer;
 
-	&:active {
-		border: 0px;
-		margin-top: 25px;
-		background-color: #f3423f;
+	button {
+		position: relative;
+		font-size: 30px;
+		width: 150px;
+		height: 70px;
+		left: 50%;
+		margin: 20px 0 20px -75px;
+		color: white;
+		border: 0px solid white;
+		border-bottom: 5px solid white;
+		border-radius: 3%;
+		outline: 0;
+		cursor: pointer;
+
+		&:active {
+			border: 0px;
+			margin-top: 25px;
+			background-color: #f3423f;
+		}
+	}
+
+	button.test {
+		background-color: #47b89d;
+		border-bottom-color: darken(#47b89d, 10%)
+	}
+
+	button.fire {
+		
+		background-color: #f37046;
+		border-bottom-color: darken(#f37046, 20%);
 	}
 }
-
-button.test {
-	background-color: #47b89d;
-	border-bottom-color: darken(#47b89d, 10%)
-}
-
-button.fire {
-	
-	background-color: #f37046;
-	border-bottom-color: darken(#f37046, 20%);
-}
-
 
 @height-cloak: 60px;
 @width-cloak: 350px;

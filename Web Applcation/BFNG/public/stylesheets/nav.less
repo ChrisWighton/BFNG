@@ -1,0 +1,62 @@
+@import "_globals";
+@height-nav: 50px;
+
+nav {
+	position: relative;
+	margin: 30px auto;
+	height: @height-nav;
+	line-height: @height-nav;
+	width: 80%;
+	border-top: 1px solid #404040;
+	border-bottom: 1px solid #404040;
+	z-index: 999;
+
+	h1:first-child {
+		font-family: 'Pacifico', cursive;
+		font-size: @height-nav - 10;
+		display: block;
+		margin: 0;
+		color: @colour-site-accent;
+		text-align: center;
+		text-shadow: 1px 1px darken(@colour-site-accent, 20%);
+	}
+
+	div.nav-options {
+		position: absolute;
+		top: 0;
+		left: 20px;
+
+		.nav-menu ul { 
+			display: none; // Hide before plugin loads
+		}
+
+		.nav-menu li a {
+			font-size: 1.2em;
+			color: white;
+			text-decoration: none;
+		}
+
+		.nav-menu ul.dropit-submenu {
+			background-color: fadeout(#404040, 10%);
+			padding: 6px 0;
+			margin: 0px 0 0 -20px;
+			box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}          
+		.nav-menu ul.dropit-submenu a {
+			display: block;
+			font-size: 16px;
+			line-height: 30px;
+			color: white;
+			padding: 0 18px;
+		}
+		.nav-menu ul.dropit-submenu a:hover {
+			background: @colour-site-accent;
+			color: #383838;
+			text-decoration: none;
+		}
+	}
+
+
+}

@@ -1,0 +1,46 @@
+
+	section(ng-controller="MainController")
+
+		div(class="loading-cloak")
+			div
+				i(class="fa fa-circle-o-notch fa-spin")
+
+		div(class="bfng-logo")
+			h1= title
+				span= name
+
+		div(class="input-wrapper")
+			label(for="ipaddress") IP Address
+				i(class="fa fa-at")
+			input(id="ipaddress" type="text" ng-model="ip_address" select-on-focus)
+
+			button(class="test" ng-click="TestConnection()") TEST&nbsp;&nbsp;
+				i(class="fa fa-send")
+
+		div(class="input-wrapper")
+			label(for="xaxis") X Axis
+				i(class="fa fa-arrows-h")
+			input(id="xaxis" type="number" ng-model="x_axis" select-on-focus focus)
+
+			label(for="yaxis") Y Axis
+				i(class="fa fa-arrows-v")
+			input(id="yaxis" type="number" ng-model="y_axis" select-on-focus)
+
+			label(for="firecount") Fire Count
+				i(class="fa fa-fire")
+			input(id="firecount" type="number" ng-model="firecount" select-on-focus)
+			
+			button(class="fire" ng-click="SendCommand()") FIRE&nbsp;&nbsp;
+				i(class="fa fa-play")
+
+		div(class="input-wrapper")
+			label(for="query")  Http Request Sent
+				i(class="fa fa-cloud-upload")
+			input(id="query" type="text" ng-model="query" readonly)
+
+			label(for="response") Http Response Received
+				i(class="fa fa-cloud-download")
+			input(id="response" type="text" ng-model="response" readonly)
+
+		div(class="input-wrapper")
+			iframe(src="http://vulcan1.local")

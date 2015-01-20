@@ -1,0 +1,44 @@
+@import "_globals";
+
+@colour-step-bg: #383838;
+div.setup-step {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	padding: 15px;
+	color: white;
+	background-color: @colour-step-bg;
+
+	strong {
+		display: block;
+		color: @colour-site-accent;
+		margin-bottom: 4px;
+
+		span {
+			margin-left: 40px;
+			cursor: pointer;
+
+			&:hover, &:active {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	li {
+		margin-bottom: 6px;
+	}
+}
+
+iframe.yun-setup {
+	width: 100%;
+	height: 500px;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+div.setup-step-close {
+	background-color: fadeout(@colour-step-bg, 40%);
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	height: 20px;
+}

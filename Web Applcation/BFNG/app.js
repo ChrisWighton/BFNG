@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var yun_setup = require('./routes/yun-setup');
+
 
 var lessMiddleware = require('less-middleware');
 
@@ -28,6 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/yun-setup', yun_setup);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
