@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var yun_setup = require('./routes/yun-setup');
+var test_fire = require('./routes/test-fire');
 
 
 var lessMiddleware = require('less-middleware');
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/yun-setup', yun_setup);
+app.use('/test-fire', test_fire);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
