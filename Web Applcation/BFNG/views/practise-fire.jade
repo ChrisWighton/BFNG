@@ -1,0 +1,66 @@
+extends layout
+
+block content
+	section(ng-controller="MainController")
+
+		div(class="loading-cloak")
+			div
+				i(class="fa fa-circle-o-notch fa-spin")
+
+		//- Connection Test
+		div(class="content-slate")
+
+			span Fire some practise shots to make sure everything is awesome and working. Go nuts, have fun, and make sure you hide any pets
+			br
+			br
+
+			strong Test the connection
+			br
+
+			label(for="ipaddress") IP Address
+				i(class="fa fa-at")
+			div(class="input-form")
+				input(id="ipaddress" type="text" placeholder="vulcan name" ng-model="ip_address" select-on-focus)
+				span(ng-click="TestConnection()") Test
+
+
+		//- Coordinates
+		div(class="content-slate")
+			
+			strong Enter the coordinates
+			br
+
+			div(class="input-label")
+				label(for="xaxis") X Axis
+					i(class="fa fa-arrows-h")
+				input(id="xaxis" type="number" ng-model="x_axis" select-on-focus focus)
+
+			div(class="input-label")
+				label(for="yaxis") Y Axis
+					i(class="fa fa-arrows-v")
+				input(id="yaxis" type="number" ng-model="y_axis" select-on-focus)
+
+			div(class="input-label")
+				label(for="firecount") Fire Count
+					i(class="fa fa-fire")
+				input(id="firecount" type="number" ng-model="firecount" select-on-focus)
+			
+			button(class="primary md" ng-click="SendCommand()") FIRE&nbsp;&nbsp;
+				i(class="fa fa-play")
+
+
+		//- Response
+		div(class="content-slate")
+
+			strong Check the response
+			br
+
+			div(class="input-label")
+				label(for="query")  Http Request Sent
+					i(class="fa fa-cloud-upload")
+				input(id="query" type="text" ng-model="query" readonly)
+
+			div(class="input-label")
+				label(for="response") Http Response Received
+					i(class="fa fa-cloud-download")
+				input(id="response" type="text" ng-model="response" readonly)

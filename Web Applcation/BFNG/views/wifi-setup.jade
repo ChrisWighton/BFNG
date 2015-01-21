@@ -1,0 +1,52 @@
+extends layout
+
+block content
+	section(ng-controller="SetupController")
+
+		//- Step 1
+		div(class="content-slate setup-step" ng-show="step == 1")
+
+			span This quick wizard will guide you through connecting your Vulcan to your WIFI network so it can communicate with the computer
+			br
+			br
+
+			strong Step 1
+			ol
+				li Make sure your Vulcan is plugged in and powered (wait a minute or two)
+				li Connect your computer to the WIFI network provided by the Vulcan
+				li 
+					| Enter the 
+					b name 
+					| of the Vulcan below:
+			span 
+			div(class="input-form")
+				input(type="text" placeholder="name of vulcan on the box" ng-model="yun_name")
+				span(ng-click="SetIFrameSRC(yun_name)") Configure
+
+		//- Step 2
+		div(class="content-slate setup-step" ng-show="step == 2")
+			strong Step 2
+				span(ng-click="DecrementStep()") 
+					| &lt;&lt;&nbsp;Back
+			ol
+				li If the window below does not display a page, go back and try again
+				li 
+					| Enter the 
+					b password 
+					| that came with the box, then select 
+					b LOG IN
+				li 
+					| Click the 
+					b CONFIGURE 
+					| button
+				li You may choose to rename your Vulcan (make note of it somewhere please)
+				li You may also choose a different password (seriously make note of it!)
+				li Select the correct timezone for wherever you are
+				li Choose the WIFI network from the drop down that you want the Vulcan to connect to
+				li Make sure the wireless name is correct
+				li The security should be correct (if you don't know better, leave it)
+				li Type the password for connecting to the chosen WIFI network
+				li Select 
+					b CONFIGURE AND RESTART
+
+			iframe(class="yun-setup" src="")

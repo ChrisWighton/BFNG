@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var static_routes = require('./routes/static');
+var vulcan_routes = require('./routes/vulcan');
+
 
 var lessMiddleware = require('less-middleware');
 
@@ -27,7 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', static_routes);
+app.use('/vulcan', vulcan_routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

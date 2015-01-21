@@ -4,20 +4,56 @@ html
     title= title
     link(rel='stylesheet' href='/stylesheets/common.css')
     link(rel='stylesheet' href='/stylesheets/index.css')
-    link(rel='stylesheet' href='/stylesheets/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet' href='/stylesheets/nav.css')
+    link(rel='stylesheet' href='/stylesheets/yun-setup.css')
+    link(rel='stylesheet' href='/libraries/font-awesome/css/font-awesome.min.css')
+    link(rel="stylesheet" href="/libraries/dropit/dropit.css" type="text/css")
 
-    script(type="text/javascript" src="/javascripts/jquery-2.1.3.min.js")
-    script(type="text/javascript" src="/javascripts/angular.min.js")
+    script(type="text/javascript" src="/libraries/jquery-2.1.3.min.js")
+    script(type="text/javascript" src="/libraries/angular.min.js")
+    script(type="text/javascript" src="/libraries/dropit/dropit.js")
     script(type="text/javascript" src="/javascripts/_defaults.js")
     script(type="text/javascript" src="/javascripts/_command_definitions.js")
 
     script(type="text/javascript" src="/javascripts/angular/bfng.js")
     script(type="text/javascript" src="/javascripts/angular/controllers/main_controller.js")
+    script(type="text/javascript" src="/javascripts/angular/controllers/setup_controller.js")
     script(type="text/javascript" src="/javascripts/angular/services/common_service.js")
     script(type="text/javascript" src="/javascripts/angular/services/command_service.js")
     script(type="text/javascript" src="/javascripts/angular/services/query_string_service.js")
     script(type="text/javascript" src="/javascripts/angular/services/ajax_service.js")
     script(type="text/javascript" src="/javascripts/angular/directives/dom_directive.js")
-  
-  body(ng-app="bfng")
-    block content
+
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css')
+      
+    body(ng-app="bfng")
+
+        nav
+            h1= name
+            div(class="nav-options")
+                ul(class="nav-menu dropit")
+                    li(class="dropit-trigger dropit-open")
+                        a(class="nav-dropdown" href="#") 
+                            i(class="fa fa-chevron-down") &nbsp;&nbsp;
+                            | Menu
+
+                        ul(class="dropit-submenu")
+                            li
+                                a(href="/") Home
+                            li
+                                a(href="/wifi-setup") Setup WIFI
+                            li
+                                a(href="/vulcan") Manage Vulcans
+                            li
+                                a(href="/practise-fire") Practise Fire
+
+        div(class="content")
+            h2(class="page-heading")= heading
+
+            block content
+
+    script(type='text/javascript').
+      $(".nav-menu").dropit({
+        action: 'mouseenter'
+        });
