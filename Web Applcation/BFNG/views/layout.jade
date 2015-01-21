@@ -29,6 +29,10 @@ html
       
     body(ng-app="bfng" ng-controller="GlobalController")
 
+        div(class="loading-cloak")
+            div
+                i(class="fa fa-circle-o-notch fa-spin")
+
         nav
             h1= name
             div(class="nav-options")
