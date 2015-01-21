@@ -42,7 +42,7 @@ angular.module("main.controller", [])
 			$scope.query = queryString;
 			$scope.response = "";
 
-			$("div.loading-cloak").show();
+			$scope.ShowLoading();
 			var $responseInput = $("input#response");
 
 				// request success
@@ -58,7 +58,7 @@ angular.module("main.controller", [])
 				// request finally
 				.always(function(xhr, status, error) {
 					CommandHelper.ResetSelectedCommands();
-					$("div.loading-cloak").hide();
+					$scope.HideLoading();
 					$("html, body").animate({
 						scrollTop: $responseInput.offset().top
 					}, 1000);
