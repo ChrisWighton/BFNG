@@ -4,11 +4,19 @@ angular.module("global.controller", [])
 	function ($scope) {
 
 		var $loadingCloak = $("div.loading-cloak");
-		$scope.ShowLoading = function() {	
+		var $textSpan = $loadingCloak.find("span").first();
+		
+		$scope.ShowLoading = function(text) {
+
+			if (text != undefined || text != null) {
+				$textSpan.text(text);
+			}
+
 			$loadingCloak.show();
 		};
 
-		$scope.HideLoading = function() {
+		$scope.HideLoading = function(text) {
+			$textSpan.text("");
 			$loadingCloak.hide();
 		};
 
