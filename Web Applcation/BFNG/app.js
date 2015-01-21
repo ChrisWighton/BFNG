@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var yun_setup = require('./routes/yun-setup');
-var test_fire = require('./routes/test-fire');
+var yun_setup = require('./routes/wifi-setup');
+var test_fire = require('./routes/practise-fire');
 
 
 var lessMiddleware = require('less-middleware');
@@ -31,8 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/yun-setup', yun_setup);
-app.use('/test-fire', test_fire);
+app.use('/wifi-setup', yun_setup);
+app.use('/practise-fire', test_fire);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
