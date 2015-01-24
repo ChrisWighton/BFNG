@@ -4,6 +4,10 @@ angular.module("query_string.service", [])
 
 	function QueryStringHelper() { }
 
+	QueryStringHelper.prototype.BuildBaseAddress = function(name) {
+		return "http://" + name + ".local"
+	}
+
 	// Builds the query string based on the included commands
 	QueryStringHelper.prototype.BuildQueryString = function(ipaddress, commands) {
 		

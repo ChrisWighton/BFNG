@@ -7,6 +7,7 @@ angular.module("main.controller", [])
 		$scope.x_axis = 0;
 		$scope.y_axis = 0;
 		$scope.firecount = 1;
+		$scope.selectedvulcan = "vulcan1";
 
 		$scope.TestConnection = function() {
 			var ip_address = $scope.ip_address;
@@ -21,7 +22,7 @@ angular.module("main.controller", [])
 		}
 
 		$scope.SendCommand = function() {
-			var ip_address = $scope.ip_address;
+			var selectedvulcan = $scope.selectedvulcan;
 			var x_axis = $scope.x_axis;
 			var y_axis = $scope.y_axis;
 			var firecount = $scope.firecount;
@@ -30,7 +31,8 @@ angular.module("main.controller", [])
 			CommandHelper.AddAction(MOVE_COMMAND_NAME, { x_axis: x_axis, y_axis: y_axis });
 			CommandHelper.AddAction(FIRE_COMMAND_NAME, { count: firecount });
 			
-			var queryString = QueryStringHelper.BuildQueryString(ip_address, CommandHelper.GetSelectedCommands());
+			var baseAddress = QueryStringHelper.BuildBaseAddress(selectedvulcan);
+			var queryString = QueryStringHelper.BuildQueryString(baseAddress, CommandHelper.GetSelectedCommands());
 
 			if (queryString !== "") {
 				$scope.SendRequest(queryString);

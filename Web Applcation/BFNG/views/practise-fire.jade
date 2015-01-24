@@ -27,6 +27,12 @@ block content
 			br
 
 			div(class="input-label")
+				label Select your vulcan
+				select(ng-model="selectedvulcan")
+					each vulcan in vulcans
+						option(value=vulcan.name)= vulcan.name + " - " + vulcan.owner
+
+			div(class="input-label")
 				label(for="xaxis") X Axis
 					i(class="fa fa-arrows-h")
 				input(id="xaxis" type="number" ng-model="x_axis" select-on-focus focus)

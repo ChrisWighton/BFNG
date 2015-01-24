@@ -14,7 +14,17 @@ router.get('/practise-fire', function(req, res) {
   res.render('practise-fire', { 
   	title: 'B.F.N.G',
   	name: 'Big Fruity Nerf Gun',
-  	heading: 'Practise some shots'
+  	heading: 'Practise some shots',
+    vulcans: [
+      {
+        name: "vulcan1",
+        owner: "James"
+      },
+      {
+        name: "vulcan2",
+        owner: "Chirs"
+      }
+    ]
   });
 });
 
