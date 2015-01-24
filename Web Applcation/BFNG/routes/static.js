@@ -21,7 +21,7 @@ router.get('/practise-fire', function(req, res) {
         owner: "James"
       },
       {
-        name: "vulcan2",
+        name: "MrYun",
         owner: "Chirs"
       }
     ]
