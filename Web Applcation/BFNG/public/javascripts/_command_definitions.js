@@ -25,8 +25,8 @@ var fireCommand = {
 // COMMAND VALIDATORS
 
 function ValidateMoveCommand() {
-	var max_x_axis = 60;
-	var max_y_axis = 70;
+	var max_x_axis = 179;
+	var max_y_axis = 179;
 
 	if (this.data.x_axis === "" || isNaN(this.data.x_axis)) {
 		return "please provide a numerical X_Axis value";
@@ -41,8 +41,8 @@ function ValidateMoveCommand() {
 	if (this.data.x_axis < -1 * max_x_axis)
 		this.data.x_axis = -1 * max_x_axis;
 
-	if (this.data.y_axis < 0)
-		this.data.y_axis = 0;
+	if (this.data.y_axis < 1)
+		this.data.y_axis = 1;
 	if (this.data.y_axis > max_y_axis)
 		this.data.y_axis = max_y_axis;
 

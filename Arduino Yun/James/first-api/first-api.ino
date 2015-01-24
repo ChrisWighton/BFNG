@@ -1,15 +1,23 @@
 #include <YunServer.h>
 #include <YunClient.h>
 
+#include <Servo.h>
+
 YunServer server;
+Servo servoX;
+Servo servoY;
 
 char DATA_DELIM = ':';
 int MAX_DATA_SIZE = 30;
+int FIRE_PIN = 2;
 
 void setup() {
   Bridge.begin();
   server.listenOnLocalhost();
   server.begin();
+  servoX.attach(9);
+  servoY.attach(8);
+  pinMode(FIRE_PIN, OUTPUT);
 }
 
 void loop() {
@@ -29,8 +37,15 @@ void loop() {
       // I LIKE TO MOVE IT MOVE IT
       if (nextCommand == "move") {
 
-        Serial.println("x_axis: " + data.substring(0, index));
-        Serial.println("y_axis: " + data.substring(index + 1));
+        int x_axis = data.substring(0, index).toInt();
+        int y_axis = data.substring(index+1).toInt();
+        
+        Serial.println("x_axis: " + x_axis);
+        Serial.println("y_axis: " + y_axis);
+
+        servoX.write(x_axis);
+        servoY.write(y_axis);
+        
       }
       
       // FIRE IN THE HOLE!
@@ -38,6 +53,10 @@ void loop() {
         int fireCount = data.toInt();
         for (int i = 0; i < fireCount; i++) {
           Serial.println("firing");
+          digitalWrite(FIRE_PIN, HIGH);
+          delay(500);
+          digitalWrite(FIRE_PIN, LOW);
+          delay(500);
         }
       }
       
