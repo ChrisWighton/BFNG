@@ -42,7 +42,7 @@ This is a list of the stuff involved in making this project happen (will be upda
 3. Run **npm install** (might need admin)
 4. Create a file called **_defaults.js** under *BFNG/public/javascripts*
 6. Inside the file paste this line of code and modify as needed: *var arduinoAddress = "http://" + "myArduino.local";*
-7. Hopefully run **nodemon bin/www**
+7. Hopefully run **npm start**
 8. Navigate to **localhost:9000** in your browser of choice (better not be IE)
 
 ## Getting Yún up and running (assuming brand new)
